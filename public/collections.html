@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>TASK</title>
+    <link href="/styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .data-container {
+            padding: 0rem 2rem 0rem 2rem;
+            animation-name: fadeIn;
+            animation-duration: 0.5s;
+        }
+
+        .collection {
+            font-size: 1.5rem;
+            line-height: 2px;
+            margin: 3.5rem;
+            text-align: center;
+        }
+
+        .head {
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <script>
+
+        function getCollections() {
+            fetch('/api/collections')
+                .then(response => response.json())
+                .then(data => {
+                    displayData(data.Collections);
+                })
+        }
+
+
+        function submitCollection() {
+            var collectionName = $('#createCollection').serialize()
+            $.ajax({
+                url: 'http://localhost:3000/api/collections',
+                method: 'POST',
+                data: collectionName,
+            });
+        }
+
+
+        function displayData(collections) {
+            const dataContainer = document.getElementById('data-container');
+            dataContainer.innerHTML = ''; // Clear previous data
+            // Iterate over the data and create HTML elements to display it
+            collections.forEach(collection => {
+                const itemElement = document.createElement('div');
+                const item = document.createElement('div');
+                item.textContent = collection.name
+                item.classList.add("head")
+                itemElement.appendChild(item)
+                collection.words.forEach(word => {
+                    const innerItem = document.createElement('p');
+                    innerItem.textContent = word;
+                    innerItem.classList.add("item")
+                    itemElement.appendChild(innerItem);
+                })
+                itemElement.classList.add("collection")
+                dataContainer.appendChild(itemElement);
+            });
+        }
+
+
+        function displaySingleData(collection) {
+            const dataContainer = document.getElementById('data-container');
+            dataContainer.innerHTML = '';
+            const itemElement = document.createElement('div');
+            const item = document.createElement('div');
+            item.textContent = collection.name
+            item.classList.add("head")
+            itemElement.appendChild(item)
+            collection.words.forEach(word => {
+                const innerItem = document.createElement('p');
+                innerItem.textContent = word;
+                innerItem.classList.add("item")
+                itemElement.appendChild(innerItem);
+            })
+            itemElement.classList.add("collection")
+            dataContainer.appendChild(itemElement);
+
+        }
+
+
+        function getCollection() {
+            var collectionName = document.getElementById('collectionNameInput').value;
+            $.ajax({
+                url: `http://localhost:3000/api/collections/${collectionName}`,
+                method: 'GET',
+                success: function (response) {
+                    const collection = response
+                    displaySingleData(collection)
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+
+
+        function deleteCollection() {
+            var collectionName = document.getElementById('collectionNameInput').value;
+            $.ajax({
+                url: `http://localhost:3000/api/collections/${collectionName}`,
+                method: 'DELETE',
+                data: { collectionName: collectionName },
+                success: function (response) {
+                    getCollections()
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+
+
+        function submitWord() {
+            var formData = $('#createWord').serialize();
+            var formObject = {};
+            formData.split('&').forEach(function (pair) {
+                var keyValue = pair.split('=');
+                var key = decodeURIComponent(keyValue[0]);
+                var value = decodeURIComponent(keyValue[1]);
+                formObject[key] = value;
+            });
+            $.ajax({
+                url: `http://localhost:3000/api/collections/${formObject.collectionName}/${formObject.word}`,
+                method: 'POST',
+                success: function (response) {
+                    getCollections()
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+
+
+        function DeleteWord() {
+            var formData = $('#createWord').serialize();
+            var formObject = {};
+            formData.split('&').forEach(function (pair) {
+                var keyValue = pair.split('=');
+                var key = decodeURIComponent(keyValue[0]);
+                var value = decodeURIComponent(keyValue[1]);
+                formObject[key] = value;
+            });
+            $.ajax({
+                url: `http://localhost:3000/api/collections/${formObject.collectionName}/${formObject.word}`,
+                method: 'DELETE',
+                success: function (response) {
+                    getCollections()
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+
+
+        function moveWord() {
+            var formData = $('#moveWord').serialize();
+            $.ajax({
+                url: `http://localhost:3000/api/collections/sounds/meow`,
+                method: 'MOVE',
+                data: formData,
+                success: function (response) {
+                    getCollections()
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+
+
+        getCollections()
+
+    </script>
+    <div class="NavBar">
+        <a href="words.html">Words</a>
+        <a class="active" href="collections.html">Collections</a>
+    </div>
+    <div class="collections-content">
+        <div>
+            <!--To move a word from one collection to other-->
+            <form id="moveWord" class="moveWord">
+                <p><b>Move a word from Collection1 to Collection2</b></p>
+                <input type="text" id="collectionNameInput1" name="collectionName1" placeholder="Collection's name" />to
+                <input type="text" id="collectionNameInput2" name="collectionName2"
+                    placeholder="Collection's name" /><br>
+                <input type="text" id="wordInput" name="word" placeholder="word"><br>
+                <button type="button" onclick="moveWord()">Move Word</button>
+            </form>
+
+            <!--To get a Single collection and Delete Single Collection-->
+            <form id="getCollection" class="getCollection">
+                <p><b>To Get and Delete Collections</b></p>
+                <input type="text" id="collectionNameInput" name="collectionName" placeholder="Collection's name" /><br>
+                <button type="button" onclick="getCollection()">Get Collection</button>
+                <button type="button" onclick="deleteCollection()">Delete</button>
+            </form>
+        </div>
+
+        <!--For GET request-->
+        <div id="data-container"></div>
+
+
+        <div>
+            <!--For Creating a new Collection-->
+            <form id="createCollection" class="createCollection">
+                <p><b>Create a New Collection</b></p>
+                <input type="text" name="collectionName" placeholder="Collection's name" /><br>
+                <button onclick="submitCollection()">Submit</button>
+            </form>
+
+            <!-- For Creating and deleting a word in Collections -->
+            <form id="createWord" class="createWord">
+                <p><b>Insert or Delete a word from Collections</b></p>
+                <input type="text" id="collectionNameInput" name="collectionName" placeholder="Collection's name" /><br>
+                <input type="text" id="wordInput" name="word" placeholder="word"><br>
+                <button type="button" onclick="submitWord()">Add Word</button>
+                <button type="button" onclick="DeleteWord()">Delete Word</button>
+            </form>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>

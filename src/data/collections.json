@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Animals",
+        "words": [
+            "dog",
+            "cat",
+            "Monkey",
+            "lion"
+        ]
+    },
+    {
+        "name": "Little Ones",
+        "words": [
+            "baby",
+            "cub",
+            "kitten",
+            "puppy"
+        ]
+    },
+    {
+        "name": "Sounds",
+        "words": [
+            "meow",
+            "bark",
+            "roar",
+            "cry"
+        ]
+    }
+]

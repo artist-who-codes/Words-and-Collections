@@ -1,0 +1,91 @@
+body {
+    font-size: 1.5rem;
+    background-color: #FFF1DC;
+    color: #342309;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
+
+.NavBar {
+    background-color: #342309;
+    text-align: center;
+    padding: 1.5rem;
+    margin: -1rem;
+}
+
+.NavBar>a {
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.NavBar>a.active {
+    color: #FB9902;
+}
+
+.content {
+    margin: 2rem;
+    display: flex;
+}
+
+.content>.card {
+    background-color: rgb(198, 137, 255);
+    text-align: center;
+    font-size: x-large;
+    width: 10rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+
+}
+
+.content>.card>a {
+    text-decoration: none;
+    color: black;
+}
+
+.collections-content {
+    margin: 3.5rem;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.createCollection,
+.getCollection,
+.createWord,
+.moveWord {
+    margin: 2rem;
+    text-align: center;
+}
+
+input {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    border: transparent;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: #FB9902;
+    border: transparent;
+    color: #FFF1DC;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1;
+    }
+}

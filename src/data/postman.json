@@ -1,0 +1,398 @@
+{
+    "info": {
+        "_postman_id": "000e0c6b-cbd4-4ed9-b0a5-ac080bbbb184",
+        "name": "Task",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "27787490"
+    },
+    "item": [
+        {
+            "name": "GET 0 params",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "POST 0 params",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections?collectionName=new",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections"
+                    ],
+                    "query": [
+                        {
+                            "key": "collectionName",
+                            "value": "new"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "GET 1 params",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Animals",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Animals"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DELETE 1 params",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Animals",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Animals"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DELETE 1 params",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/new",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "new"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "GET 1 params",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/hi",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "hi"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "POST 2 params",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/quack",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "quack"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "POST 2 params",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/hi/good",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "hi",
+                        "good"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "POST 2 params",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/quack",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "quack"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DELETE 2 params",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/quack",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "quack"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DELETE 2 params",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/quack",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "quack"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DELETE 2 params",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/hi/quack",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "hi",
+                        "quack"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "MOVE",
+            "request": {
+                "method": "MOVE",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "collectionName1",
+                            "value": "Sounds",
+                            "type": "text"
+                        },
+                        {
+                            "key": "collectionName2",
+                            "value": "Animals",
+                            "type": "text"
+                        },
+                        {
+                            "key": "word",
+                            "value": "meow",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/meow",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "meow"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "MOVE",
+            "request": {
+                "method": "MOVE",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "collectionName1",
+                            "value": "Sounds",
+                            "type": "text"
+                        },
+                        {
+                            "key": "collectionName2",
+                            "value": "Animals",
+                            "type": "text"
+                        },
+                        {
+                            "key": "word",
+                            "value": "hi",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/meow",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "meow"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "MOVE",
+            "request": {
+                "method": "MOVE",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "collectionName1",
+                            "value": "Hi",
+                            "type": "text"
+                        },
+                        {
+                            "key": "collectionName2",
+                            "value": "Sounds",
+                            "type": "text"
+                        },
+                        {
+                            "key": "word",
+                            "value": "name",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/collections/Sounds/meow",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "collections",
+                        "Sounds",
+                        "meow"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

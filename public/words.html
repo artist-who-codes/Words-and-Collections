@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>TASK</title>
+    <style>
+        body {
+            font-size: 1.5rem;
+            background-color: #EBF7E3;
+            color: #1B3409;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation-name: fadeIn;
+            animation-duration: 0.5s;
+        }
+
+        .NavBar {
+            background-color: #1B3409;
+            text-align: center;
+            padding: 1.5rem;
+            margin: -1rem;
+        }
+
+        .NavBar>a {
+            padding: 1rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .NavBar>a.active {
+            color: #66B032;
+        }
+
+        form {
+            text-align: center;
+            margin: 3rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border-radius: 0.5rem;
+            border: transparent;
+        }
+
+        .item {
+            font-size: 1.5rem;
+            line-height: 2px;
+            margin: 3.5rem;
+            text-align: center;
+            font-weight: 600;
+            animation-name: fadeIn;
+            animation-duration: 0.5s;
+        }
+
+        .Words {
+            display: grid;
+            grid-template-columns: repeat(5, 2fr);
+        }
+
+        .content {
+            margin: 2rem;
+        }
+
+        button {
+            padding: 0.5rem;
+            background-color: #66B032;
+            border-radius: 0.5rem;
+            border-color: transparent;
+            color: #EBF7E3;
+            font-weight: 600;
+            margin: 1rem
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function SearchWord() {
+            var formData = $('#Search').serialize();
+            $.ajax({
+                url: 'http://localhost:3000/api/words',
+                method: 'GET',
+                data: formData,
+                success: function (response) {
+                    displayWords(response)
+                },
+                error: function (response) {
+                    const message = response.responseText;
+                    alert(message);
+                }
+            });
+        }
+        function displayWords(Words) {
+            const dataContainer = document.getElementById('Words');
+            dataContainer.innerHTML = '';
+
+            Words.forEach(word => {
+                const itemElement = document.createElement('p')
+                itemElement.textContent = word
+                itemElement.classList.add("item")
+                dataContainer.appendChild(itemElement);
+            });
+        }
+    </script>
+    <div class="NavBar">
+        <a class="active" href="words.html">Words</a>
+        <a href="collections.html">Collections</a>
+    </div>
+    <div class="content">
+        <form id="Search" class="Search">
+            <input type="text" id="queryText" name="queryText" placeholder="Search words" />
+            <input type="number" id="number" name="number" placeholder="No.of Words" /><br>
+            <button type="button" onclick="SearchWord()">Search</button>
+        </form>
+        <div id="Words" class="Words"></div>
+    </div>
+</body>
+
+</html>
